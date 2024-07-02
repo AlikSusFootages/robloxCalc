@@ -36,32 +36,39 @@
             margin-top: 8px;
             font-weight: 400;
         }
+        body{
+            display: flex;,
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-    <h1>Roblox Studs to Centimeters Converter</h1>
-    <div class="converter">
-        <label for="studs">Studs to Centimeters</label>
-        <input type="number" id="studs" placeholder="Enter number of studs" oninput="convertToCentimeters()">
-        <p id="centimetersResult" class="result">[studs] studs = [centimeters] cm</p>
+    <div class="content">
+        <h1>Roblox Studs to Centimeters Converter</h1>
+        <div class="converter">
+            <label for="studs">Studs to Centimeters</label>
+            <input type="number" id="studs" placeholder="Enter number of studs" oninput="convertToCentimeters()">
+            <p id="centimetersResult" class="result">[studs] studs = [centimeters] cm</p>
+        </div>
+        <div class="converter">
+            <label for="centimeters">Centimeters to Studs</label>
+            <input type="number" id="centimeters" placeholder="Enter number of centimeters" oninput="convertToStuds()">
+            <p id="studsResult" class="result">[centimeters] cm = [studs] studs</p>
+        </div>
+        <script>
+            function convertToCentimeters() {
+                const studs = document.getElementById('studs').value;
+                const centimeters = studs * 28.8;
+                document.getElementById('centimetersResult').innerText = studs + ' studs = ' + centimeters.toFixed(2) + ' cm';
+            }
+    
+            function convertToStuds() {
+                const centimeters = document.getElementById('centimeters').value;
+                const studs = centimeters / 28.8;
+                document.getElementById('studsResult').innerText = centimeters + ' cm = ' + studs.toFixed(2) + ' studs';
+            }
+        </script>
     </div>
-    <div class="converter">
-        <label for="centimeters">Centimeters to Studs</label>
-        <input type="number" id="centimeters" placeholder="Enter number of centimeters" oninput="convertToStuds()">
-        <p id="studsResult" class="result">[centimeters] cm = [studs] studs</p>
-    </div>
-    <script>
-        function convertToCentimeters() {
-            const studs = document.getElementById('studs').value;
-            const centimeters = studs * 28.8;
-            document.getElementById('centimetersResult').innerText = studs + ' studs = ' + centimeters.toFixed(2) + ' cm';
-        }
-
-        function convertToStuds() {
-            const centimeters = document.getElementById('centimeters').value;
-            const studs = centimeters / 28.8;
-            document.getElementById('studsResult').innerText = centimeters + ' cm = ' + studs.toFixed(2) + ' studs';
-        }
-    </script>
 </body>
 </html>
