@@ -1,12 +1,55 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Studs to centimetr</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <input type="number" placeholder="Stud's">
-        <button>=></button>
-        <p id="cm"></p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Studs to Centimeters Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .converter {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roblox Studs to Centimeters Converter</h1>
+    <div class="converter">
+        <label for="studs">Studs:</label>
+        <input type="number" id="studs" placeholder="Enter number of studs" oninput="convertToCentimeters()">
+        <p id="centimetersResult" class="result"></p>
+    </div>
+    <div class="converter">
+        <label for="centimeters">Centimeters:</label>
+        <input type="number" id="centimeters" placeholder="Enter number of centimeters" oninput="convertToStuds()">
+        <p id="studsResult" class="result"></p>
+    </div>
+    <script>
+        function convertToCentimeters() {
+            const studs = document.getElementById('studs').value;
+            const centimeters = studs * 28.8;
+            document.getElementById('centimetersResult').innerText = studs + ' studs = ' + centimeters.toFixed(2) + ' cm';
+        }
+
+        function convertToStuds() {
+            const centimeters = document.getElementById('centimeters').value;
+            const studs = centimeters / 28.8;
+            document.getElementById('studsResult').innerText = centimeters + ' cm = ' + studs.toFixed(2) + ' studs';
+        }
+    </script>
+</body>
 </html>
