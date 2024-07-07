@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Круги и отрезок</title>
+    <style>
+        #svgCanvas {
+            border: 1px solid black;
+        }
+        .circle {
+            fill: blue;
+        }
+        .line {
+            stroke: red;
+            stroke-width: 2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Введите координаты</h2>
+    <label for="x1">X1: </label>
+    <input type="number" id="x1" value="0">
+    <label for="y1">Y1: </label>
+    <input type="number" id="y1" value="0"><br><br>
+    <label for="x2">X2: </label>
+    <input type="number" id="x2" value="10">
+    <label for="y2">Y2: </label>
+    <input type="number" id="y2" value="9"><br><br>
+    <button onclick="draw()">Нарисовать</button>
+
+    <svg id="svgCanvas" width="500" height="500">
+        <circle id="circle1" class="circle" r="5"></circle>
+        <circle id="circle2" class="circle" r="5"></circle>
+        <line id="line" class="line"></line>
+    </svg>
+
+    <script>
+        function draw() {
+            const x1 = parseFloat(document.getElementById('x1').value);
+            const y1 = parseFloat(document.getElementById('y1').value);
+            const x2 = parseFloat(document.getElementById('x2').value);
+            const y2 = parseFloat(document.getElementById('y2').value);
+
+            const circle1 = document.getElementById('circle1');
+            const circle2 = document.getElementById('circle2');
+            const line = document.getElementById('line');
+
+            // Set circle positions
+            circle1.setAttribute('cx', x1 * 20 + 50);
+            circle1.setAttribute('cy', 500 - (y1 * 20 + 50));
+            circle2.setAttribute('cx', x2 * 20 + 50);
+            circle2.setAttribute('cy', 500 - (y2 * 20 + 50));
+
+            // Set line positions
+            line.setAttribute('x1', x1 * 20 + 50);
+            line.setAttribute('y1', 500 - (y1 * 20 + 50));
+            line.setAttribute('x2', x2 * 20 + 50);
+            line.setAttribute('y2', 500 - (y2 * 20 + 50));
+        }
+
+        // Draw initial circles and line
+        draw();
+    </script>
+</body>
+</html>
